@@ -1,0 +1,24 @@
+# Artefak Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Dependensi Node (dipakai folder verify/)
+node_modules/
+
+# Hasil generate & data pembayaran asli — JANGAN di-push
+*.png
+*.jpg
+*.jpeg
+# File input QRIS user (kecuali requirements.txt)
+/*.txt
+!requirements.txt
+
+# File OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp

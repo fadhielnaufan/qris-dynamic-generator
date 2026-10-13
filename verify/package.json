@@ -1,0 +1,13 @@
+{
+  "name": "qris-dynamic-verify",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Cross-check hasil converter Python vs paket npm referensi",
+  "scripts": {
+    "check": "node check.mjs"
+  },
+  "dependencies": {
+    "@nurafandito/qris-static-dynamic-core": "^0.2.0"
+  }
+}
