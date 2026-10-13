@@ -116,29 +116,34 @@ print(parse_qris(dinamis))
 ## Struktur project
 
 ```
-qris-dynamic/
+qris-dynamic-generator/
 ├── cli.py              # Command line interface
 ├── qris_dynamic.py     # Core: parser TLV, CRC16, konversi, validasi
 ├── requirements.txt
 └── verify/
-    └── check.mjs       # Cross-check hasil konversi
+    └── check.py        # Verifikasi mandiri payload QRIS
 ```
 
 ---
 
 ## Verifikasi
 
-Hasil konversi diverifikasi dengan cross-check: payload dihitung ulang lalu
-dibandingkan **byte-per-byte** supaya format dan CRC-nya benar.
+`verify/check.py` mengecek payload QRIS secara mandiri: header, tag wajib,
+Merchant Category Code, CRC16, plus uji **round-trip** (konversi lalu cek
+nominal hasilnya). Tidak butuh dependensi tambahan.
 
 ```bash
-cd verify
-npm install
-python ../cli.py --demo --amount 1 --out /tmp/out.png   # lihat payload
-node check.mjs 1 "<payload_dari_python>"
+python verify/check.py --demo --amount 1
 ```
 
-Kalau output ditandai `IDENTIK ✅`, hasil converter ini konsisten dan valid.
+Atau untuk payload sendiri:
+
+```bash
+python verify/check.py --qris "00020101021226..."
+python verify/check.py --file qris.txt
+```
+
+Kalau semua lolos, akan tampil `ROUND-TRIP : LOLOS ✅`.
 
 ---
 
