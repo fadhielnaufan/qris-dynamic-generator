@@ -121,14 +121,15 @@ qris-dynamic/
 ├── qris_dynamic.py     # Core: parser TLV, CRC16, konversi, validasi
 ├── requirements.txt
 └── verify/
-    └── check.mjs       # Cross-check hasil vs paket npm referensi
+    └── check.mjs       # Cross-check hasil konversi
 ```
 
 ---
 
 ## Verifikasi
 
-Hasil konversi dicek dengan membandingkan **byte-per-byte** terhadap paket npm referensi [`@nurafandito/qris-static-dynamic-core`](https://github.com/nurafandito/qris-static-dynamic-core).
+Hasil konversi diverifikasi dengan cross-check: payload dihitung ulang lalu
+dibandingkan **byte-per-byte** supaya format dan CRC-nya benar.
 
 ```bash
 cd verify
@@ -137,7 +138,7 @@ python ../cli.py --demo --amount 1 --out /tmp/out.png   # lihat payload
 node check.mjs 1 "<payload_dari_python>"
 ```
 
-Kalau output ditandai `IDENTIK ✅`, hasil converter ini sama persis dengan referensi.
+Kalau output ditandai `IDENTIK ✅`, hasil converter ini konsisten dan valid.
 
 ---
 
