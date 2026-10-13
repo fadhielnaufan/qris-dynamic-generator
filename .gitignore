@@ -13,6 +13,11 @@ env/
 /*.txt
 !requirements.txt
 
+# Catatan pribadi / bahan interview — JANGAN di-push
+BALASAN_KLIEN.md
+DECODING_BAHAN_INTERVIEW.md
+demo_decode.py
+
 # File OS / editor
 .DS_Store
 Thumbs.db
