@@ -16,6 +16,7 @@ env/
 # Catatan pribadi / bahan interview — JANGAN di-push
 BALASAN_KLIEN.md
 DECODING_BAHAN_INTERVIEW.md
+meeting.md
 demo_decode.py
 
 # File OS / editor
